@@ -76,11 +76,11 @@ async def auto_filter(bot, update):
             if file_size < 1024:
                 file_size = f"[{file_size} B]"
             elif file_size < (1024**2):
-                file_size = f"[{str(round(file_size/1024, 2))} KiB] "
+                file_size = f"[{str(round(file_size/1024, 2))} KB] "
             elif file_size < (1024**3):
-                file_size = f"[{str(round(file_size/(1024**2), 2))} MiB] "
+                file_size = f"[{str(round(file_size/(1024**2), 2))} MB] "
             elif file_size < (1024**4):
-                file_size = f"[{str(round(file_size/(1024**3), 2))} GiB] "
+                file_size = f"[{str(round(file_size/(1024**3), 2))} GB] "
             
             
             file_size = "" if file_size == ("[0 B]") else file_size
@@ -152,13 +152,13 @@ async def auto_filter(bot, update):
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("𝙽𝚎𝚡𝚝»»»", callback_data=f"navigate(0|next|{query})")
+                    InlineKeyboardButton("𝙽𝙴𝚇𝚃", callback_data=f"navigate(0|next|{query})")
                 ]
             )
         
         # Just A Decaration
         result[0].append([
-            InlineKeyboardButton(f"📑 𝙿𝚊𝚐𝚎 1/{len_result if len_result < max_pages else max_pages} 📑", callback_data="ignore")
+            InlineKeyboardButton(f"📚 𝙿𝙰𝙶𝙴 1/{len_result if len_result < max_pages else max_pages} 📚", callback_data="ignore")
         ])
         
         
@@ -209,7 +209,7 @@ async def auto_filter(bot, update):
             await bot.send_photo(
                 chat_id = update.chat.id,
                 photo= MASSAGE_PHOTO,
-                caption=f"<b>🗂️Total File :- {(len_results)} </b>\n<b>🎬Movie Name :-</b> <code>{query}</code>",
+                caption=f"<b>📁 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴 :- {(len_results)} </b>\n<b>🎬 𝙼𝙾𝚅𝙸𝙴 𝙽𝙰𝙼𝙴 :-</b> <code>{query}</code>",
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=update.message_id
